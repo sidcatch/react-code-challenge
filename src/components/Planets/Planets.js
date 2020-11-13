@@ -46,6 +46,9 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
           loadFilms(row.films);
           history.push({ pathname: "/films" });
         },
+        showAction: (row) => {
+          return !(row.films.length === 0);
+        },
       },
       {
         label: "Go to Residents",
@@ -53,17 +56,26 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
           loadResidents(row.residents);
           history.push({ pathname: "/residents" });
         },
+        showAction: (row) => {
+          return !(row.residents.length === 0);
+        },
       },
       {
         label: "Planet Details",
         action: (row, index) => {
           history.push({ pathname: `/planet-details/${index}` });
         },
+        showAction: (row) => {
+          return true;
+        },
       },
       {
         label: "Open Form",
         action: () => {
           openForm();
+        },
+        showAction: (row) => {
+          return true;
         },
       },
     ],

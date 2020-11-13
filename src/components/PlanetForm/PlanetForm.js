@@ -131,7 +131,7 @@ const PlanetForm = ({ closeForm }) => {
 
       <div className={modalStyles.prompt}>
         <section className={formStyles.formContainer}>
-          <h1 className={cx(modalStyles.heading)}>Add Planet</h1>
+          <h1 className={cx(modalStyles.heading)}>Update Planet</h1>
           {content}
         </section>
       </div>

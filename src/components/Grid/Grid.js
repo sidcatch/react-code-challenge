@@ -19,11 +19,13 @@ function Grid({ data: { header = [], values = [], actions = [] } }) {
             ))}
             {!!actions.length && (
               <td className="gridActions">
-                {actions.map(({ label, action }, index) => (
-                  <button onClick={() => action(row, valIndex)} key={index}>
-                    {label}
-                  </button>
-                ))}
+                {actions.map(({ label, action, showAction }, index) => {
+                  return showAction(row) ? (
+                    <button onClick={() => action(row, valIndex)} key={index}>
+                      {label}
+                    </button>
+                  ) : null;
+                })}
               </td>
             )}
           </tr>
