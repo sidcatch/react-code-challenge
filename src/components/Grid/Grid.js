@@ -14,9 +14,18 @@ function Grid({ data: { header = [], values = [], actions = [] } }) {
       <tbody>
         {values.map((row, valIndex) => (
           <tr key={valIndex}>
-            {header.map((colName) => (
-              <td key={colName}>{row[colName]}</td>
-            ))}
+            {header.map((colName) => {
+              return !Array.isArray(row[colName]) ? (
+                <td
+                  key={colName}
+                  className={`${!isNaN(row[colName]) ? "alignRight" : ""}`}
+                >
+                  {row[colName]}
+                </td>
+              ) : (
+                <td key={colName}>{row[colName].map((data) => data + "\n")}</td>
+              );
+            })}
             {!!actions.length && (
               <td className="gridActions">
                 {actions.map(({ label, action, showAction }, index) => {

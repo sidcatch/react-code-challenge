@@ -28,3 +28,6 @@
 .gridActions button {
   margin: 0 5px;
 }
+.alignRight {
+  text-align: right;
+}

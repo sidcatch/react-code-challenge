@@ -1,4 +1,10 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { setAlert } from "../../actions/alert";
+
+import PropTypes from "prop-types";
+
+import getRandomInt from "../../util/getRandomInt";
 
 import Backdrop from "../Backdrop";
 
@@ -6,16 +12,16 @@ import cx from "classnames";
 import formStyles from "./Form.module.css";
 import modalStyles from "./Modal.module.css";
 
-const PlanetForm = ({ closeForm }) => {
+const PlanetForm = ({ closeForm, setAlert }) => {
   const [formState, setFormState] = useState({
     name: "",
-    rotation_period: null,
-    orbital_period: null,
-    diameter: null,
+    rotation_period: "",
+    orbital_period: "",
+    diameter: "",
     climate: "",
     gravity: "",
     terrain: "",
-    surface_water: null,
+    surface_water: "",
   });
   const {
     name,
@@ -23,7 +29,7 @@ const PlanetForm = ({ closeForm }) => {
     orbital_period,
     diameter,
     climate,
-    /* gravity, */
+    gravity,
     terrain,
     surface_water,
   } = formState;
@@ -35,7 +41,11 @@ const PlanetForm = ({ closeForm }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("summited");
+
+    if (getRandomInt(0, 1)) setAlert("Planet data Updated!", "success");
+    else setAlert("Planet data failed to Updated.", "fail");
+
+    closeForm();
   };
 
   let content = (
@@ -51,26 +61,33 @@ const PlanetForm = ({ closeForm }) => {
           required
         />
       </div>
-      <label className={formStyles.label}>Rotation Period</label>
-      <div>
-        <input
-          type="number"
-          name="rotation_period"
-          value={rotation_period}
-          onChange={(e) => onChange(e)}
-          required
-        />
+      <div style={{ display: "flex" }}>
+        <div>
+          <label className={formStyles.label}>Rotation Period</label>
+          <div style={{ marginRight: "5px" }}>
+            <input
+              type="number"
+              name="rotation_period"
+              value={rotation_period}
+              onChange={(e) => onChange(e)}
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <label className={formStyles.label}>Orbital Period</label>
+          <div>
+            <input
+              type="number"
+              name="orbital_period"
+              value={orbital_period}
+              onChange={(e) => onChange(e)}
+              required
+            />
+          </div>
+        </div>
       </div>
-      <label className={formStyles.label}>Orbital Period</label>
-      <div>
-        <input
-          type="number"
-          name="orbital_period"
-          value={orbital_period}
-          onChange={(e) => onChange(e)}
-          required
-        />
-      </div>
+
       <label className={formStyles.label}>Diameter</label>
       <div>
         <input
@@ -91,7 +108,7 @@ const PlanetForm = ({ closeForm }) => {
           required
         />
       </div>
-      {/* <label className={formStyles.label}>Gravity</label>
+      <label className={formStyles.label}>Gravity</label>
       <div>
         <input
           type="text"
@@ -100,11 +117,17 @@ const PlanetForm = ({ closeForm }) => {
           onChange={(e) => onChange(e)}
           required
         />
-      </div> */}
-
+      </div>
       <label className={formStyles.label}>Terrain</label>
-      <select name="terrain" value={terrain} onChange={(e) => onChange(e)}>
-        <option value="">Select Terrain</option>
+      <select
+        name="terrain"
+        value={terrain}
+        onChange={(e) => onChange(e)}
+        required
+      >
+        <option value="" disabled>
+          Select Terrain
+        </option>
         <option value="desert">Desert</option>
         <option value="grasslands">Grasslands</option>
         <option value="mountains">Mountains</option>
@@ -138,5 +161,12 @@ const PlanetForm = ({ closeForm }) => {
     </Fragment>
   );
 };
+PlanetForm.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  setAlert,
+};
 
-export default PlanetForm;
+export default connect(mapStateToProps, mapDispatchToProps)(PlanetForm);

@@ -12,7 +12,15 @@ import "./Planets.css";
 import Grid from "../Grid";
 import PlanetForm from "../PlanetForm";
 
-function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
+function Planets({
+  planets,
+  loadPlanets,
+  loadFilms,
+  loadResidents,
+  history,
+  showFilms,
+  showResidents,
+}) {
   const [formOpen, setFormOpen] = useState(false);
 
   useEffect(() => {
@@ -80,6 +88,8 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
       },
     ],
   };
+  /* if (showResidents) gridData.header.push("residents"); */
+  if (showFilms) gridData.header.push("films");
 
   return (
     <div className="App">
