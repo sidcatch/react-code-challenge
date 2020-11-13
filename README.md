@@ -1,4 +1,6 @@
-## Available Scripts
+**Checkout the Deployed project [here](http://reactchallenge.syedimaduddin.com/)**
+
+## Scripts
 
 In the project directory, you can run:
 
