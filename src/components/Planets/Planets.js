@@ -13,7 +13,7 @@ import Grid from "../Grid";
 import PlanetForm from "../PlanetForm";
 
 function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
-  const [formOpen, setFormOpen] = useState(true);
+  const [formOpen, setFormOpen] = useState(false);
 
   useEffect(() => {
     loadPlanets();
