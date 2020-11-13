@@ -1,4 +1,4 @@
-import { LOAD_RESIDENTS } from "./types";
+import { LOAD_RESIDENTS, CLEAR_RESIDENTS } from "./types";
 import axios from "axios";
 
 export const loadResidents = (urls) => (dispatch) => {
@@ -17,4 +17,7 @@ export const loadResidents = (urls) => (dispatch) => {
     .catch((errors) => {
       console.log("Can't load residents");
     });
+};
+export const clearResidents = () => (dispatch) => {
+  dispatch({ type: CLEAR_RESIDENTS });
 };

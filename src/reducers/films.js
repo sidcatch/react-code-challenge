@@ -1,4 +1,4 @@
-import { LOAD_FILMS } from "../actions/types";
+import { LOAD_FILMS, CLEAR_FILMS } from "../actions/types";
 
 const initialState = [];
 
@@ -9,7 +9,8 @@ let filmsReducer = function (state = initialState, action) {
   switch (type) {
     case LOAD_FILMS:
       return payload;
-
+    case CLEAR_FILMS:
+      return [];
     default:
       return state;
   }

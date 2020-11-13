@@ -1,4 +1,4 @@
-import { LOAD_RESIDENTS } from "../actions/types";
+import { LOAD_RESIDENTS, CLEAR_RESIDENTS } from "../actions/types";
 
 const initialState = [];
 
@@ -9,7 +9,8 @@ let residentsReducer = function (state = initialState, action) {
   switch (type) {
     case LOAD_RESIDENTS:
       return payload;
-
+    case CLEAR_RESIDENTS:
+      return [];
     default:
       return state;
   }

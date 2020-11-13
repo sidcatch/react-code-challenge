@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 
 import { loadPlanets } from "../../actions/planets";
 import { loadFilms } from "../../actions/films";
+import { clearFilms } from "../../actions/films";
 import { loadResidents } from "../../actions/residents";
+import { clearResidents } from "../../actions/residents";
 
 import PropTypes from "prop-types";
 
@@ -16,7 +18,9 @@ function Planets({
   planets,
   loadPlanets,
   loadFilms,
+  clearFilms,
   loadResidents,
+  clearResidents,
   history,
   showFilms,
   showResidents,
@@ -51,6 +55,7 @@ function Planets({
       {
         label: "Go to Films",
         action: (row) => {
+          clearFilms();
           loadFilms(row.films);
           history.push({ pathname: "/films" });
         },
@@ -61,6 +66,7 @@ function Planets({
       {
         label: "Go to Residents",
         action: (row) => {
+          clearResidents();
           loadResidents(row.residents);
           history.push({ pathname: "/residents" });
         },
@@ -104,7 +110,9 @@ Planets.propTypes = {
   planets: PropTypes.array,
   loadPlanets: PropTypes.func.isRequired,
   loadFilms: PropTypes.func.isRequired,
+  clearFilms: PropTypes.func.isRequired,
   loadResidents: PropTypes.func.isRequired,
+  clearResidents: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -114,7 +122,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   loadPlanets,
   loadFilms,
+  clearFilms,
   loadResidents,
+  clearResidents,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Planets);

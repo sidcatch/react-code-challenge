@@ -1,4 +1,4 @@
-import { LOAD_FILMS } from "./types";
+import { LOAD_FILMS, CLEAR_FILMS } from "./types";
 import axios from "axios";
 
 export const loadFilms = (urls) => (dispatch) => {
@@ -17,4 +17,8 @@ export const loadFilms = (urls) => (dispatch) => {
     .catch((errors) => {
       console.log("Can't load films");
     });
+};
+
+export const clearFilms = () => (dispatch) => {
+  dispatch({ type: CLEAR_FILMS });
 };
