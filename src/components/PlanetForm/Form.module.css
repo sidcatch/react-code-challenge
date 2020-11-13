@@ -1,0 +1,28 @@
+.formContainer {
+  width: 100%;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.form {
+}
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--light-color);
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  outline: none;
+}
+.label {
+  display: inline-block;
+  font-weight: bold;
+  margin: 0 0 0 0.3rem;
+}

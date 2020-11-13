@@ -1,0 +1,156 @@
+.large {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0.2rem;
+}
+
+.mediumIcon {
+  height: 40px;
+}
+
+.smallIcon {
+  height: 17px;
+}
+
+.largeIcon {
+  height: 50px;
+}
+
+.backIcon {
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  width: 6.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.4rem 0.3rem;
+  font-size: 1rem;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  outline: none;
+}
+.btn:hover {
+  background-color: var(--light-color);
+  border: 1px solid var(--light-color);
+  /* color: black; */
+  color: white;
+}
+
+.inactiveBtn {
+  display: inline-block;
+  width: 6.5rem;
+  background: white;
+  color: var(--light-color);
+  padding: 0.4rem 0.3rem;
+  font-size: 1rem;
+  border: 1px solid var(--light-color);
+  outline: none;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-1point5 {
+  margin-top: 1.5rem;
+}
+.mt-point5 {
+  margin-top: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 2rem;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+.ml-point5 {
+  margin-left: 0.5rem;
+}
+.mr-1 {
+  margin-right: 1rem;
+}
+.pl-2 {
+  padding-left: 2rem;
+}
+
+.smallLink {
+  color: black;
+}
+.smallLink:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.prompt {
+  text-align: left;
+  position: fixed;
+
+  width: 400px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -200px;
+
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+
+  z-index: 100;
+}
+
+.close {
+  height: 25px;
+}
+.closeContainer {
+  margin: 0.5rem;
+  float: right;
+}
+
+.readOnly {
+  color: var(--light-color);
+}
+
+.testList {
+  font-size: 100px;
+}
+
+@media only screen and (max-width: 550px) {
+  .btn {
+    display: inline-block;
+    width: 5rem;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.4rem 0.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .prompt {
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    border-radius: 0px;
+  }
+
+  .smallIcon {
+    height: 25px;
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { loadPlanets } from "../../actions/planets";
@@ -10,13 +10,21 @@ import PropTypes from "prop-types";
 import "./Planets.css";
 
 import Grid from "../Grid";
+import PlanetForm from "../PlanetForm";
 
 function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
-  //console.log(planets);
+  const [formOpen, setFormOpen] = useState(true);
 
   useEffect(() => {
     loadPlanets();
   }, [loadPlanets]);
+
+  const closeForm = () => {
+    setFormOpen(false);
+  };
+  const openForm = () => {
+    setFormOpen(true);
+  };
 
   const gridData = {
     header: [
@@ -52,6 +60,12 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
           history.push({ pathname: `/planet-details/${index}` });
         },
       },
+      {
+        label: "Open Form",
+        action: () => {
+          openForm();
+        },
+      },
     ],
   };
 
@@ -59,6 +73,7 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
     <div className="App">
       <h1>Star Wars Planets</h1>
       <Grid data={gridData} />
+      {formOpen && <PlanetForm closeForm={closeForm} />}
     </div>
   );
 }
