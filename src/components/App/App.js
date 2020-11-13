@@ -5,6 +5,7 @@ import "./App.css";
 import Planets from "../Planets";
 import Films from "../Films";
 import Residents from "../Residents";
+import PlanetDetails from "../PlanetDetails";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" component={Planets} />
         <Route path="/films" component={Films} />
         <Route path="/residents" component={Residents} />
+        <Route path="/planet-details/:id" component={PlanetDetails} />
       </div>
     </Router>
   );

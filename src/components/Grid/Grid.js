@@ -12,15 +12,15 @@ function Grid({ data: { header = [], values = [], actions = [] } }) {
         </tr>
       </thead>
       <tbody>
-        {values.map((row, index) => (
-          <tr key={index}>
+        {values.map((row, valIndex) => (
+          <tr key={valIndex}>
             {header.map((colName) => (
               <td key={colName}>{row[colName]}</td>
             ))}
             {!!actions.length && (
               <td className="gridActions">
                 {actions.map(({ label, action }, index) => (
-                  <button onClick={() => action(row)} key={index}>
+                  <button onClick={() => action(row, valIndex)} key={index}>
                     {label}
                   </button>
                 ))}

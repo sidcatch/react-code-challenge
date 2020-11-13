@@ -46,6 +46,12 @@ function Planets({ planets, loadPlanets, loadFilms, loadResidents, history }) {
           history.push({ pathname: "/residents" });
         },
       },
+      {
+        label: "Planet Details",
+        action: (row, index) => {
+          history.push({ pathname: `/planet-details/${index}` });
+        },
+      },
     ],
   };
 
